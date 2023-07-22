@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 호출 시 필요한 네임스페이스 -->
+<mapper namespace="ott">
+
+	<!-- 삽입 쿼리 -->
+	<insert id="insert" parameterType="hashMap" useGeneratedKeys="true" keyProperty="ott_id">  
+	    <![CDATA[
+	    	insert into ott(url, title, info) values (#{url}, #{title}, #{info})
+	    ]]>
+	</insert>
+	
+	<!-- 상세 조회 쿼리 -->
+	<select id="select_detail" parameterType="hashMap" resultType="hashMap">
+	    <![CDATA[
+	        select url, title, info, time from ott where ott_id = #{ottId}   
+	    ]]>
+	</select>
+	
+	<!-- 수정 쿼리 -->
+	<update id="update" parameterType="hashMap">  
+		<![CDATA[  
+			update ott set url = #{url}, title = #{title}, info = #{info} where ott_id = #{ottId}  
+		]]>  
+	</update>
+	
+	<!-- 삭제 쿼리 -->
+	<delete id="delete" parameterType="hashMap">  
+		<![CDATA[  
+			delete from ott where ott_id = #{ottId}  
+		]]>  
+	</delete>   
+	
+	<!-- 검색 쿼리 -->
+	<!-- where 1 =1 은 관습적인 구문이다. 1 = 1은 늘 참이기 때문에 검색 조건을 무조건 and로 연결하기 위해 사용한다. -->
+	<!-- <if 문은 마이바티스에서 조건을 나타낸다. test는 조건 규칙을 나타내는 항목이다. -->
+	<!-- 마이바티스에서는 쿼리 파라미터에 ' 표시를 붙이지 않기 때문에 title like '%#{keyword}%' 형식으로 표기하기는 어렵다. 따라서 마리아디비의 CONCAT 함수를 이용해서 문자열을 이어붙인다. -->
+	<!-- CDATA를 닫는 항목 ]]>가 orderby 항목 아래에서 위로 변경되었다. CDATA 항목 안에 <if 등의 마이바티스 구문은 RAW 문자열로 취급하여 해석되지 않기 때문에 마이바티스 구문을 실행하기 위해 CDATA 섹션을 닫아준 것이다. -->
+	<select id="select_list" parameterType="hashMap" resultType="hashMap">  
+		<![CDATA[  
+			select ott_id, url, title, info, time from ott where 1 = 1  
+		]]>  
+		<if test="keyword != null and keyword != ''">  
+			and (title like CONCAT('%',#{keyword},'%') or info like CONCAT('%',#{keyword},'%'))  
+		</if>  
+		order by time desc  
+	</select>  
+	
+	
+</mapper>
