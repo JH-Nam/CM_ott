@@ -1,23 +1,29 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
-<html>
+<html data-theme="dark">
 <head>
-<title>영상 수정</title>
+    <title>영상 수정</title>
+
+    <!-- pico.css -->
+    <link rel="stylesheet" href="../css/pico.min.css">
 </head>
 <body>
-	<h1>영상 수정</h1>
-	<form method="POST">
-		<p>
-			영상 URL : <input type="text" name="url" value="${ data.url }" />
-		</p>
-		<p>
-			제목 : <input type="text" name="title" value="${ data.title }" />
-		</p>
-		<p>
-			정보 : <input type="text" name="info" value="${ data.info }" />
-		</p>
-		<p>
-			<input type="submit" value="저장" /> <button action="/detail?ottId=${ data.ott_id }">취소</button>
-		</p>
-	</form>
+	<main class="container">
+        <h1>영상 수정</h1>
+    
+        <article>
+            <form method="POST">
+                <label>영상 URL</label> 
+                <input type="text" name="url" value="${ data.url }" placeholder="Video URL"/>
+                <label>제목</label> 
+                <input type="text" name="title" value="${ data.title }" placeholder="Title"/>
+                <label>정보</label> 
+                <input type="text" name="info" value="${ data.info }" placeholder="Info"/>
+                <div style="margin-top: 15px">
+                    <input type="submit" value="저장" /> 
+                    <button action="/detail?ottId=${ data.ott_id }" class="secondary">취소</button>
+                </div>
+            </form>
+        </article>
+    </main>
 </body>
 </html>

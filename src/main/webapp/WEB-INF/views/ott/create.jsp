@@ -1,26 +1,28 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
-<html>
+<html data-theme="dark">
 <head>
-<title>영상 입력하기</title>
+    <title>영상 입력하기</title>
+
+    <!-- pico.css -->
+    <link rel="stylesheet" href="../css/pico.min.css">
 </head>
 <body>
-	<h1>영상 입력하기</h1>
-	<form method="POST">
-		<p>
-			영상 url : <input type="text" name="url" />
-		</p>
-		<p>
-			영상 제목 : <input type="text" name="title" />
-		</p>
-		<p>
-			영상 정보 : <input type="text" name="info" />
-		</p>
-		<p>
-			<input type="submit" value="입력" />
-		</p>
-		<p>
-			<a href="/">메인 화면으로 돌아가기</a>
-		</p>
-	</form>
+    <main class="container">
+        <h1>영상 입력하기</h1>
+        <article>
+            <form method="POST">
+                <label>영상 주소</label>
+                <input type="text" name="url" placeholder="Video URL"/>
+                <label>영상 제목</label>
+                <input type="text" name="title" placeholder="Title"/>
+                <label>영상 정보</label>
+                <input type="text" name="info" placeholder="Info"/>
+                
+                <input type="submit" value="입력">
+            </form>
+            <a href="/">메인 화면으로 돌아가기</a>
+        </article>
+    </main>
 </body>
 </html>
+

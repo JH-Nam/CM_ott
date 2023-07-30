@@ -1,33 +1,38 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<html data-theme="dark">
 <head>
-<title>Home</title>
+    <title>Home</title>
+
+    <!-- pico.css -->
+    <link rel="stylesheet" href="css/pico.min.css">
 </head>
 <body>
-	<h1>메인 페이지</h1>
-
-	<P>The time on the server is ${serverTime}.</P>
-	<table>
-		<p>
-			<a href="/create">영상 입력하기</a>
-		</p>
-		<thead>
-			<tr>
-				<td>영상 URL</td>
-				<td>제목</td>
-				<td>정보</td>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="row" items="${data}">
-				<tr>
-					<td><a href="/detail?ottId=${row.ott_id}"> ${row.url}</a></td>
-					<td>${row.title}</td>
-					<td>${row.info}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+    <main class="container">
+        <h1>메인 페이지</h1>
+        <h5>The time on the server is ${serverTime}.</h5>
+        <article>
+            <table>
+                <a href="/create" role="button">영상 입력하기</a>
+                <hr>
+                <thead>
+                    <tr>
+                        <th scope="col">영상 URL</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">정보</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="row" items="${data}">
+                        <tr>
+                            <td><a href="/detail?ottId=${row.ott_id}"> ${row.url}</a></th>
+                            <td>${row.title}</td>
+                            <td>${row.info}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </article>
+    </main>
 </body>
 </html>
