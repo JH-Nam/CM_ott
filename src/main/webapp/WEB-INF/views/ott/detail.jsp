@@ -21,7 +21,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.3.0/video.min.js"></script>
         
     <!-- pico.css -->
-    <link rel="stylesheet" href="../css/pico.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
 </head>
 
 <body>
