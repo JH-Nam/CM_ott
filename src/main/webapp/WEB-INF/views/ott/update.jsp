@@ -4,7 +4,7 @@
     <title>영상 수정</title>
 
     <!-- pico.css -->
-    <link rel="stylesheet" href="../css/pico.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
 </head>
 <body>
 	<main class="container">
