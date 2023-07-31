@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<html data-theme="dark">
+<html data-theme="light">
 <head>
     <title>영상 상세, 시청</title>
 
@@ -21,7 +21,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.3.0/video.min.js"></script>
         
     <!-- pico.css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="/css/pico.min.css">
 </head>
 
 <body>
@@ -46,25 +46,25 @@
             <div style="margin-bottom: 30px;">
                 <a class="contrast" href="/list">목록으로</a>
             </div>
-            <video
-                id="my-player"
-                class="video-js"
-                controls preload="auto"
-                poster="//vjs.zencdn.net/v/oceans.png"
-                data-setup='{}'
-                width="720"
-                height="480">
-            <source
-                src="${ data.url }"
-                type="application/x-mpegURL"
-                label="1080P">
-            <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a web browser that
-                <a href="https://videojs.com/html5-video-support/" target="_blank">
-                    supports HTML5 video
-                </a>
-            </p>
-            </video>
+	        <video
+	            id="my-player"
+	            class="video-js"
+	            controls preload="auto"
+	            poster="//vjs.zencdn.net/v/oceans.png"
+	            data-setup='{}'
+                style="position: relative; width: 100%; height: auto;"
+                >
+	        <source
+	            src="/css/2023-02-28 오후 네트워크 기초.mp4"
+	            type="video/mp4"
+	            label="1080P">
+	        <p class="vjs-no-js">
+	            To view this video please enable JavaScript, and consider upgrading to a web browser that
+	            <a href="https://videojs.com/html5-video-support/" target="_blank">
+	                supports HTML5 video
+	            </a>
+	        </p>
+	        </video>
         </article>
     </main>
 </body>
