@@ -4,7 +4,7 @@
     <title>영상 입력하기</title>
 
     <!-- pico.css -->
-    <link rel="stylesheet" href="/css/pico.min.css">
+    <link rel="stylesheet" href="css/pico.min.css">
 </head>
 <body>
     <main class="container">
