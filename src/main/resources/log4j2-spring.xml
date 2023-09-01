@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+
+	<!-- Appenders -->
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%-5p: %c - %m%n" />
+		</Console>
+	</Appenders>
+	
+	<Loggers>
+	
+		<!-- Application Loggers -->
+		<Logger name="com.cm.ott" level="info" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+
+		<Logger name="org.springframework" level="info" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+
+		<Logger name="com.mysql" level="info" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+
+		<Logger name="org.projectlombok" level="info" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+
+		<Logger name="org.mybatis.spring.boot" level="info" additivity="false">
+			<AppenderRef ref="console" />
+		</Logger>
+
+	</Loggers>
+
+</Configuration>
